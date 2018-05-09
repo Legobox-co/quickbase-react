@@ -22,10 +22,17 @@ class Header extends Component {
 		this.state = {
 			toggle: false
 		}
+		this.dropdown = this.dropdown.bind(this);
 	}
 
 	static propTypes = {
 		isLoggedIn: PropTypes.bool.isRequired
+	}
+
+	dropdown(){
+		this.setState({
+			toggle: !this.state.toggle
+		});
 	}
 
 	render(){
@@ -55,7 +62,7 @@ class Header extends Component {
 					<NavbarBrand>
 						Spectre
 					</NavbarBrand>
-					<NavbarToggler></NavbarToggler>
+					<NavbarToggler onClick={this.dropdown}></NavbarToggler>
 					<Collapse isOpen={this.state.toggle} navbar>
 						<Nav className="ml-auto">
 							<NavItem>
