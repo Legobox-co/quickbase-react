@@ -5,14 +5,13 @@ import { withRouter } from "react-router";
 
 class EnsureVisitorOnlyContainer extends React.Component {
   componentDidMount() {
-    const { currentURL } = this.props;
+    const { currentURL, pages } = this.props;
 
-    var visitorRoutes = ["/", "", "terms", "conditions"];
-    var check = visitorRoutes.indexOf(currentURL) > -1; //if the current route is an internal route, redirect to a visitor route
+    var check = pages.indexOf(currentURL) > -1; //if the current route is an internal route, redirect to a visitor route
     if (this.props.isLoggedIn) {
       // set the current url/path for future redirection (we use a Redux action)
       // then redirect (we use a React Router method)
-      //   dispatch(actions.setRedirectUrl(currentURL))
+	  //   dispatch(actions.setRedirectUrl(currentURL))
       if (check) {
         this.props.history.replace("/home");
       }

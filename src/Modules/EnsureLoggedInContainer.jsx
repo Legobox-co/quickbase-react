@@ -5,13 +5,17 @@ import actions from '../Store/Actions'
 
 class EnsureLoggedInContainer extends React.Component {
   componentDidMount() {
-    const { dispatch, currentURL } = this.props
+    const { dispatch, currentURL, pages } = this.props
 
+	var check = pages.indexOf(currentURL) > -1; //i.e the current page is amongst the visitor pages
     if (!this.props.isLoggedIn) {
       // set the current url/path for future redirection (we use a Redux action)
-      // then redirect (we use a React Router method)
-      dispatch(actions.setRedirectUrl(currentURL))
-      this.props.history.replace("/login")
+	  // then redirect (we use a React Router method)
+	  if(check){
+		  console.log("This section ran too")
+		  dispatch(actions.setRedirectUrl(currentURL))
+		  this.props.history.replace("/login")
+	  }
     }
   }
 

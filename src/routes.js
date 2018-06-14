@@ -2,21 +2,34 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 // import scenes here
-import {Dashboard, Settings, Login} from './Scenes'
+import {Dashboard, Settings, Login, Home, Profile} from './Scenes'
 
 // auth checkers for checking if the routes are authorized
 import AppCheck from './Modules/AppCheck.jsx';
 import EnsureLoggedInContainer from './Modules/EnsureLoggedInContainer.jsx';
 import EnsureVisitorOnlyContainer from './Modules/EnsureVisitorOnlyContainer.jsx';
 
+const externalPages = [
+	'/',
+	'/login'
+];
+
+const internalPages = [
+	'/home',
+	'/profile',
+	'/settings'
+];
+
 const routes = (
   <React.Fragment>
 	<AppCheck>
-		<EnsureVisitorOnlyContainer>
-			<Route path="/login" component={Login} />
+		<EnsureVisitorOnlyContainer pages={externalPages}>
+			<Route exact path="/" component={Home} />
+			<Route exact path="/login" component={Login} />
 		</EnsureVisitorOnlyContainer>
-		<EnsureLoggedInContainer>
+		<EnsureLoggedInContainer pages={internalPages}>
 			<Route exact path="/home" component={Dashboard} />
+			<Route exact path="/profile" component={Profile} />
 			<Route path="/settings" component={Settings} />
 		</EnsureLoggedInContainer>
 	</AppCheck>
