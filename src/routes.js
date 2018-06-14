@@ -14,7 +14,7 @@ const routes = (
 	<AppCheck>
 		<EnsureVisitorOnlyContainer>
 			<Route path="/login" component={Login} />
-	</EnsureVisitorOnlyContainer>
+		</EnsureVisitorOnlyContainer>
 		<EnsureLoggedInContainer>
 			<Route exact path="/home" component={Dashboard} />
 			<Route path="/settings" component={Settings} />

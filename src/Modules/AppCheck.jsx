@@ -1,17 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+// import {navigateTo} from "../Store/Actions";
 
 class AppCheck extends React.Component {
   componentDidUpdate(prevProps) {
-    const { dispatch, redirectUrl } = this.props;
+    const { redirectUrl, history } = this.props;
     const isLoggingOut = prevProps.isLoggedIn && !this.props.isLoggedIn;
     const isLoggingIn = !prevProps.isLoggedIn && this.props.isLoggedIn;
 
     if (isLoggingIn) {
-        // dispatch(navigateTo(redirectUrl))
+		// dispatch(navigateTo(redirectUrl));
+		history.push(redirectUrl);
     } else if (isLoggingOut) {
-      // do any kind of cleanup or post-logout redirection here
+	  // do any kind of cleanup or post-logout redirection here
+	  history.push('/login');
     }
   }
 

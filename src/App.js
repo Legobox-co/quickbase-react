@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
 // import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 import {Header} from './Components';
 import { Provider } from "react-redux";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import routes from './routes';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
 	BrowserRouter as Router,
 } from 'react-router-dom';
@@ -28,9 +28,10 @@ class App extends Component {
 						</Router>
 					</React.Fragment>
 				</PersistGate>
-			</Provider>
+				</Provider>
 		);
 	}
 }
+
 
 export default App;

@@ -8,7 +8,7 @@ class EnsureVisitorOnlyContainer extends React.Component {
     const { currentURL } = this.props;
 
     var visitorRoutes = ["/", "", "terms", "conditions"];
-    var check = visitorRoutes.indexOf(currentURL) > -1;
+    var check = visitorRoutes.indexOf(currentURL) > -1; //if the current route is an internal route, redirect to a visitor route
     if (this.props.isLoggedIn) {
       // set the current url/path for future redirection (we use a Redux action)
       // then redirect (we use a React Router method)

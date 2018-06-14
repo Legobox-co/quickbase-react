@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import actions from '../Store/Actions'
 import {
   NavbarBrand,
   Navbar,
@@ -23,6 +24,8 @@ class Header extends Component {
 			toggle: false
 		}
 		this.dropdown = this.dropdown.bind(this);
+		this.toggleLogState = this.toggleLogState.bind(this);
+		this.loginUser = this.loginUser.bind(this);
 	}
 
 	static propTypes = {
@@ -33,6 +36,16 @@ class Header extends Component {
 		this.setState({
 			toggle: !this.state.toggle
 		});
+	}
+
+	toggleLogState(){
+		const {dispatch} = this.props;
+		dispatch(actions.logout());
+	}
+
+	loginUser(){
+		const { dispatch } = this.props;
+		dispatch(actions.login());
 	}
 
 	render(){
@@ -49,12 +62,12 @@ class Header extends Component {
 					Settings
 					</DropdownItem>
 					<DropdownItem divider />
-					<DropdownItem>
+					<DropdownItem onClick={this.toggleLogState}>
 					Logout
 					</DropdownItem>
 				</DropdownMenu>
 				</UncontrolledDropdown>
-			: <NavLink>Login</NavLink>;
+			: <NavLink style={{cursor: 'pointer'}} onClick={this.loginUser}>Login</NavLink>;
 
 		return (
 			<React.Fragment>

@@ -1,11 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 const Card = (props) => {
 	return (
-		<div style={styles.cardMain}>
-			<div style={styles.cardHeader}>
-				{props.title}
-			</div>
+		<div style={{...props.theme,...styles.cardMain}}>
 			<div style={styles.cardBody}>
 				{props.children}
 			</div>
@@ -18,8 +15,8 @@ const styles = {
 		backgroundColor: "white",
 		// boxShadow: "0px 2px 6px -3px",
 		border:"1px solid #ededed",
-		marginTop: "15px",
 		padding: "12px",
+		marginBottom: "15px",
 		width: "100%",
 		fontSize: "1.3em",
 		minHeight:"40px"

@@ -1,5 +1,5 @@
 export default {
   currentUser: null,
-  isAuthenticated: true,
+  isAuthenticated: false,
   redirectUrl: "/home",
 };
