@@ -1,6 +1,6 @@
 // import scenes here and make routes of them
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Redirect} from 'react-router-dom';
 // import scenes here
 import {Dashboard, Settings, Login, Home, Profile, Signup} from './Scenes'
 
@@ -20,6 +20,7 @@ const internalPages = [
 	'/profile',
 	'/settings'
 ];
+
 
 const routes = (
   <React.Fragment>
