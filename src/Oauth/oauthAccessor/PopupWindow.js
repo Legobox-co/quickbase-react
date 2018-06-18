@@ -22,13 +22,11 @@ class PopupWindow {
     this.promise = new Promise((resolve, reject) => {
       this._iid = window.setInterval(() => {
         try {
-          const popup = this.window;
-
+		  const popup = this.window;
+		  console.log(popup.location.href, this.url, popup.location.pathname);
           if (!popup || popup.closed !== false) {
             this.close();
-
             reject(new Error('The popup was closed'));
-
             return;
           }
 
@@ -36,6 +34,8 @@ class PopupWindow {
             return;
           }
 
+		  // this is running
+		  console.log("Core reached here")
           const params = toParams(popup.location.search.replace(/^\?/, ''));
 
           resolve(params);
@@ -46,6 +46,7 @@ class PopupWindow {
            * Ignore DOMException: Blocked a frame with origin from accessing a
            * cross-origin frame.
            */
+		//   console.log(error)
         }
       }, 500);
     });

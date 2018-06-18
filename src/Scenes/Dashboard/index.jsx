@@ -41,7 +41,7 @@ class Scene extends Component {
 								<OauthLogin
 									buttonText="Refresh Github Token"
 									clientId = "3c9756a2ed212663d418"
-									redirectUri="http://spectre.local:3000/github/callback"
+									redirectUri = ""
 									authorizeUrl="https://github.com/login/oauth/authorize"
 									onSuccess={this.githubSuccess}
 									onFailure={this.githubFailure}

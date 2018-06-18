@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import actions from '../Store/Actions'
+import Button from './Button';
 import {
   NavbarBrand,
   Navbar,
@@ -12,6 +13,7 @@ import {
   UncontrolledDropdown,
   DropdownItem,
   DropdownToggle,
+  Container,
   DropdownMenu,
   Collapse
 } from "reactstrap";
@@ -67,23 +69,32 @@ class Header extends Component {
 					</DropdownItem>
 				</DropdownMenu>
 				</UncontrolledDropdown>
-			: <NavLink style={{cursor: 'pointer'}} onClick={this.loginUser}>Login</NavLink>;
+			: <React.Fragment>
+				<NavLink style={{cursor: 'pointer'}} onClick={this.loginUser}>
+					<Button type="primary" value="Signup"/>
+				</NavLink>
+				<NavLink style={{cursor: 'pointer'}} onClick={this.loginUser}>
+					<Button type="primary" value="Login" />
+				</NavLink>
+			</React.Fragment>
+			;
 
 		return (
 			<React.Fragment>
-				<Navbar className="App-navbar" color="light" light expand="md">
-					<NavbarBrand>
-						Spectre
-					</NavbarBrand>
-					<NavbarToggler onClick={this.dropdown}></NavbarToggler>
-					<Collapse isOpen={this.state.toggle} navbar>
-						<Nav className="ml-auto">
-							<NavItem>
-								<NavLink>Home</NavLink>
-							</NavItem>
-							{loggedStatus}
-						</Nav>
-					</Collapse>
+				<Navbar className="App-navbar" color="transparent" light expand="md">
+					<Container>
+						<NavbarBrand>
+							<NavLink style={{ cursor: 'pointer' }} onClick={()=> this.props.history.push('/')}>
+								<img src={require('../assets/logo.png')} />
+							</NavLink>
+						</NavbarBrand>
+						<NavbarToggler onClick={this.dropdown}></NavbarToggler>
+							<Collapse isOpen={this.state.toggle} navbar>
+								<Nav className="ml-auto">
+									{loggedStatus}
+								</Nav>
+							</Collapse>
+					</Container>
 				</Navbar>
 			</React.Fragment>
 		);

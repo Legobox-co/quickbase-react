@@ -54,6 +54,7 @@ class OauthLogin extends Component {
   }
 
   onSuccess = (data) => {
+	  console.log("running the promise");
     if (!data.code) {
       return this.onFailure(new Error('\'code\' not found'));
     }
