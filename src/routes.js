@@ -2,7 +2,7 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
 // import scenes here
-import {Dashboard, Settings, Login, Home, Profile, Signup} from './Scenes'
+import {Dashboard, Settings, Login, Home, Profile} from './Scenes'
 
 // auth checkers for checking if the routes are authorized
 import AppCheck from './Modules/AppCheck.jsx';
@@ -11,8 +11,7 @@ import EnsureVisitorOnlyContainer from './Modules/EnsureVisitorOnlyContainer.jsx
 
 const externalPages = [
 	'/',
-	'/login',
-	'/signup'
+	'/login'
 ];
 
 const internalPages = [
@@ -28,7 +27,6 @@ const routes = (
 		<EnsureVisitorOnlyContainer pages={externalPages}>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/login" component={Login} />
-			<Route exact path="/signup" component={Signup} />
 		</EnsureVisitorOnlyContainer>
 		<EnsureLoggedInContainer pages={internalPages}>
 			<Route exact path="/home" component={Dashboard} />
