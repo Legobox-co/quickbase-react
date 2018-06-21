@@ -1,0 +1,34 @@
+.Dashboard-headers{
+	background: #8287FF;
+	padding: 5px;
+	color: #fff;
+	font-weight: 700;
+	border-radius: 2px;
+	margin-bottom: 15px;
+}
+
+.Dashboard-stats-list{
+	list-style: none;
+	-webkit-padding-start: 0px;
+	display: block;
+}
+
+.Dashb-list{
+	border-bottom: 1px solid #ededed;
+	padding:6px;
+	display: flow-root;
+	height: 40px
+}
+.Dashb-stats-left{
+	float: left
+}
+.Dashb-stats-right{
+	float: right
+}
+
+.Dashb-tab-active{
+	background: #3B44FA;
+	padding: 10px;
+	color: #fff !important;
+	border-radius: 3px;
+}
