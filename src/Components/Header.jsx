@@ -52,9 +52,14 @@ class Header extends Component {
 
 	render(){
 		let loggedStatus = this.props.isLoggedIn === true
-			? <UncontrolledDropdown nav inNavbar>
-				<DropdownToggle nav caret>
-					Mozartted
+			? 
+			<React.Fragment>
+				<NavLink style={{cursor: 'pointer'}} onClick={this.loginUser} style={{padding: 9, fontSize: 15}}>
+					+ New Project
+				</NavLink>
+				<UncontrolledDropdown nav inNavbar>
+				<DropdownToggle nav caret style={{fontSize:15, color: '#2d2d2d'}}>
+					<img src={require('../assets/round_headshot.png')} style={{width: 30}}/> Mozartted
 				</DropdownToggle>
 				<DropdownMenu right>
 					<DropdownItem>
@@ -69,6 +74,7 @@ class Header extends Component {
 					</DropdownItem>
 				</DropdownMenu>
 				</UncontrolledDropdown>
+			</React.Fragment>
 			: <React.Fragment>
 				<NavLink style={{cursor: 'pointer'}} onClick={this.loginUser}>
 					<Button type="primary" value="Signup"/>
@@ -85,7 +91,7 @@ class Header extends Component {
 					<Container>
 						<NavbarBrand>
 							<NavLink style={{ cursor: 'pointer' }} onClick={()=> this.props.history.push('/')}>
-								<img src={require('../assets/logo.png')} />
+								<img src={require('../assets/logo.png')} width={30}/>
 							</NavLink>
 						</NavbarBrand>
 						<NavbarToggler onClick={this.dropdown}></NavbarToggler>

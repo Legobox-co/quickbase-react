@@ -1,23 +1,23 @@
 import React from 'react';
+import {Col} from 'reactstrap';
 
 const Card = (props) => {
 	return (
-		<div style={{...props.theme,...styles.cardMain}}>
+		<Col style={{...props.theme,...styles.cardMain}}>
 			<div style={styles.cardBody}>
 				{props.children}
 			</div>
-		</div>
+		</Col>
 	);
 }
 
 const styles = {
 	cardMain:{
 		backgroundColor: "white",
-		// boxShadow: "0px 2px 6px -3px",
-		border:"1px solid #ededed",
+		boxShadow: "0px 2px 6px -3px",
 		padding: "12px",
+		borderRadius: 5,
 		marginBottom: "15px",
-		width: "100%",
 		fontSize: "1.3em",
 		minHeight:"40px"
 	},

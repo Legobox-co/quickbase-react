@@ -8,7 +8,6 @@ class Http {
 	 */
 	constructor(options = {}) {
 		this.axios = axios.create(options)
-
 		this.emitAjaxEvents = true
 		this.working = 0
 		this.useGlobalCatch = true
