@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "animated": "^0.2.2",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bootstrap": "^4.1.0",
     "chart.js": "^1.1.1",
     "cookies-js": "^1.2.3",
